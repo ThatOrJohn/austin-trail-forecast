@@ -213,6 +213,13 @@ if not forecast_df.empty:
         '%Y-%m-%d') == selected_date]
 
     if not forecast_data.empty:
+        max_temp = forecast_data['apparent_temperature_max (°F)'].iloc[0]
+        precipitation = forecast_data['precipitation_sum (inch)'].iloc[0]
+
+        # Easter Egg
+        if max_temp < 33 and precipitation > 0:
+            st.snow()
+
         # Display weather info with icons
         st.subheader(f"Weather Forecast for :blue-background[{selected_date}]")
         weather_icon = get_weather_icon(forecast_data['precipitation_sum (inch)'].iloc[0],
@@ -222,10 +229,10 @@ if not forecast_df.empty:
         cols = st.columns([1, 1, 1, 1])
         cols[0].write("**Max Feels Like Temp:**")
         cols[1].write(
-            f"{forecast_data['apparent_temperature_max (°F)'].iloc[0]:.1f}°F")
+            f"{max_temp:.1f}°F")
         cols[2].write("**Precipitation:**")
         cols[3].write(
-            f"{forecast_data['precipitation_sum (inch)'].iloc[0]:.3f} in")
+            f"{precipitation:.3f} in")
 
         cols = st.columns([1, 1, 1, 1])
         cols[0].write("**Min Feels Like Temp:**")
