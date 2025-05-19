@@ -15,7 +15,7 @@ AUSTIN_LONG = -97.75
 
 # Page config for better visuals
 st.set_page_config(
-    page_title="Austin Daily Trail Count Forecast", layout="wide")
+    page_title="Austin Daily Trail Count Forecast")
 
 # Custom CSS for styling
 st.markdown("""
