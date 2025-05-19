@@ -14,7 +14,8 @@ AUSTIN_LAT = 30.28
 AUSTIN_LONG = -97.75
 
 # Page config for better visuals
-st.set_page_config(page_title="Austin Trail Count Forecast", layout="wide")
+st.set_page_config(
+    page_title="Austin Daily Trail Count Forecast", layout="wide")
 
 # Custom CSS for styling
 st.markdown("""
